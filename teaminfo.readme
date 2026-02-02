@@ -8,7 +8,7 @@
 ## Project Status: PHASE 1 COMPLETE
 We have successfully implemented the foundational pipeline for sentiment analysis using the BERT (Bidirectional Encoder Representations from Transformers) architecture.
 
-## 🌟 A Simple Example: How BERT Thinks
+## A Simple Example: How BERT Thinks
 To explain this project simply, let’s look at how the system handles a single sentence:
 **"The movie was a bit cold, but I loved it!"**
 
