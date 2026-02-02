@@ -28,26 +28,26 @@ def create_pdf(input_file, output_file):
         # Clean up Markdown-style formatting for the PDF
         if line.startswith('# '):
             pdf.set_font('helvetica', 'B', 16)
-            pdf.multi_cell(0, 10, line[2:])
+            pdf.multi_cell(180, 10, line[2:])
         elif line.startswith('## '):
             pdf.ln(5)
             pdf.set_font('helvetica', 'B', 14)
-            pdf.multi_cell(0, 10, line[3:])
+            pdf.multi_cell(180, 10, line[3:])
         elif line.startswith('### '):
             pdf.ln(3)
             pdf.set_font('helvetica', 'B', 12)
-            pdf.multi_cell(0, 8, line[4:])
+            pdf.multi_cell(180, 8, line[4:])
         elif line.startswith('*') or line.startswith('-'):
             pdf.set_font('helvetica', '', 11)
-            pdf.multi_cell(0, 8, f'  - {line[1:].strip()}')
+            pdf.multi_cell(180, 8, f'  - {line[1:].strip()}')
         elif line.startswith('**'):
             pdf.set_font('helvetica', 'B', 11)
-            pdf.multi_cell(0, 8, line.replace('**', ''))
+            pdf.multi_cell(180, 8, line.replace('**', ''))
         else:
             pdf.set_font('helvetica', '', 11)
             # Remove minor markdown bolding in regular lines
             clean_line = line.replace('**', '')
-            pdf.multi_cell(0, 8, clean_line)
+            pdf.multi_cell(180, 8, clean_line)
 
     pdf.output(output_file)
     print(f"Successfully generated {output_file}")
