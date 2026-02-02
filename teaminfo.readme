@@ -1,0 +1,48 @@
+# Project Name: Context-Aware Sentiment Classification using BERT
+
+## Team Overview
+- **Team Name**: [Insert Your Team Name Here]
+- **Members**: [Insert Team Member Names Here]
+- **Domain**: Natural Language Processing (NLP) / Deep Learning
+
+## Project Status: PHASE 1 COMPLETE
+We have successfully implemented the foundational pipeline for sentiment analysis using the BERT (Bidirectional Encoder Representations from Transformers) architecture.
+
+## 🌟 A Simple Example: How BERT Thinks
+To explain this project simply, let’s look at how the system handles a single sentence:
+**"The movie was a bit cold, but I loved it!"**
+
+1.  **Context**: Older models might see the word "cold" and think it's negative. BERT looks at the surrounding words ("but I loved it") to understand that "cold" in this context might just mean a specific style, and the overall sentiment is actually **Positive**.
+2.  **Numbers**: Our **Tokenizer** turns this sentence into numbers: `[101, 1996, 3185, 2001, 1037, 2041, 3147, 1010, 2021, 1045, 3866, 2009, 999, 102]`
+3.  **Result**: Our project currently takes these numbers and passes them through the BERT brain to get a classification score.
+
+### What has been done so far:
+1.  **Architecture Setup**: Selected `bert-base-uncased` as the base model for understanding language context (bidirectional reading).
+2.  **Environment Configuration**: Established a Python-based development environment using `PyTorch` and Hugging Face `Transformers`.
+3.  **Core Tokenization**: Implemented a tokenizer that converts raw text into BERT-compatible formats (Input IDs, Attention Masks).
+    *   **How it works**: Computers can't read text, so the tokenizer breaks sentences into "tokens" (words or sub-words). It then assigns a unique number (**Input ID**) to each token from BERT's vocabulary. It also creates an **Attention Mask** (a series of 1s and 0s) to tell the model which parts of the input are actual words versus empty space (padding).
+4.  **Baseline Pipeline**: Verified the flow from Input Text → Tokenizer → BERT Base → Classification Logits.
+    *   **How it works**: The raw text is first tokenized into tensors. These tensors are fed into the **BERT Base** engine, which uses "Self-Attention" to understand how words relate to each other. The result is passed to a **Classification Head** (a linear layer) that outputs two raw scores called **Logits**. These logits are then converted into probabilities to determine the sentiment (Positive/Negative).
+
+## Current Output Explanation
+The current system successfully processes text but requires **Fine-Tuning**. 
+- **Input**: "The movie was absolutely fantastic!"
+- **Result**: The model recognizes the text, but the sentiment labels are currently random because the classification head has not yet been trained on specific IMDb movie reviews.
+
+## The Roadmap: What's Next?
+In the next phase (Phase 2), we will focus on:
+- **Data Integration**: Loading the full IMDb Dataset (50,000 samples).
+- **Fine-Tuning**: Training the BERT classification head on tagged sentiment data to improve accuracy from ~50% to ~90%+.
+- **Optimization**: Adjusting hyperparameters (Learning Rate, Batch Size) to stabilize training.
+- **Evaluation**: Generating a Confusion Matrix and F1-Score to validate model performance.
+
+## Technology Stack
+- **Language**: Python 3.x
+- **Deep Learning Framework**: PyTorch
+- **NLP Library**: Hugging Face Transformers
+- **Dataset Source**: Kaggle / IMDb Movie Reviews
+- **Data Manipulation**: Pandas, NumPy
+- **Hardware Acceleration**: CPU (Next step: NVIDIA CUDA GPU if available)
+
+---
+*Created for: Project Submission / Technical Review*
